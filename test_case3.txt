@@ -1,0 +1,17 @@
+while (fahr <= upper) {
+    temp = (fahr - 32) * 5 / 9;
+    
+    if (temp > 0) {
+        print(temp);
+        for (i = 0; i < 10; i++) {
+            temp = temp - 1;
+            print(temp);
+        }
+    } else {
+        print("negative");
+    }
+
+    fahr = fahr + 1;
+}
+
+return;

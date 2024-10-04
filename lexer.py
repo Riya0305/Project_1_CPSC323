@@ -1,14 +1,13 @@
-# regular expression lib -> re
 import re
 
 class TokenType:
-    KEYWORD = "kEYWORD"
+    KEYWORD = "KEYWORD"
     IDENTIFIER = "IDENTIFIER"
     INTEGER = "INTEGER"
     REAL = "REAL"
     OPERATOR = "OPERATOR"
-    SEPERATOR = "SEPERATOR"
-    EOF = "EOF"
+    SEPARATOR = "SEPARATOR"
+    EOF = "EOF" #stands for end of file, to clearly mark each test case has passed
     UNKNOWN = "UNKNOWN"
 
 class Token:
@@ -20,9 +19,10 @@ class Token:
         return f"Token({self.type}, {self.lexeme})"
 
 class Lexer:
-    KEYWORDS = {'while'}
+    # Sets of keywords, operators, and separators for Rat24F
+    KEYWORDS = {'while', 'if', 'else', 'for', 'return'}
     OPERATORS = {'+', '-', '*', '/', '=', '<=', '>=', '==', '!=', '<', '>'}
-    SEPARATORS = {'(', ')', ';'}
+    SEPARATORS = {'(', ')', ';', '{', '}', '"'}
 
     def __init__(self, source_code):
         self.source_code = source_code
@@ -53,7 +53,7 @@ class Lexer:
         tokens.append(Token(TokenType.EOF, "EOF"))
         return tokens
 
-    # FSM for Identifiers
+    # FSM for Identifiers (Regex: [a-zA-Z_][a-zA-Z0-9_]*)
     def fsm_identifier(self):
         lexeme = ''
         while self.pos < self.length and (self.source_code[self.pos].isalnum() or self.source_code[self.pos] == '_'):
@@ -64,7 +64,7 @@ class Lexer:
             return Token(TokenType.KEYWORD, lexeme)
         return Token(TokenType.IDENTIFIER, lexeme)
 
-    # FSM for Integers and Reals
+    # FSM for Integers and Reals (Integer Regex: [0-9]+, Real Regex: [0-9]+\.[0-9]+)
     def fsm_integer_or_real(self):
         lexeme = ''
         is_real = False
@@ -89,7 +89,7 @@ class Lexer:
         else:
             return Token(TokenType.INTEGER, lexeme)
 
-    # FSM for Operators
+    # FSM for Operators (handles multi-character operators like <=, >=, ==, !=)
     def fsm_operator(self):
         lexeme = self.source_code[self.pos]
         self.pos += 1
@@ -103,7 +103,7 @@ class Lexer:
 
     # Check if character is an operator
     def is_operator(self, ch):
-        return ch in {'+', '-', '*', '/', '=', '>', '<', '!', '&', '|'}
+        return ch in {'+', '-', '*', '/', '=', '>', '<', '!'}
 
     # Check if character is a separator
     def is_separator(self, ch):
@@ -112,21 +112,34 @@ class Lexer:
 
 # Main program to test the lexer
 def main():
-    # Source code to tokenize (can read from a file as well)
-    source_code = """
-    while (fahr <= upper) a = 23.00;
-    """
+    test_files = ["test_case1.txt", "test_case2.txt", "test_case3.txt"]
 
-    # Initialize lexer
-    lexer = Lexer(source_code)
+    # Define column widths for Token and Lexeme
+    token_width = 15
+    lexeme_width = 20
 
-    # Tokenize the source code
-    tokens = lexer.tokenize()
+    for test_file in test_files:
+        with open(test_file, "r") as file:
+            source_code = file.read()
 
-    # Print tokens and lexemes
-    print("Token\tLexeme")
-    for token in tokens:
-        print(f"{token.type}\t{token.lexeme}")
+        # Initialize lexer with the current source code
+        lexer = Lexer(source_code)
+
+        # Tokenize the source code
+        tokens = lexer.tokenize()
+
+        # Print test case header
+        print(f"\nProcessing {test_file}")
+        print(f"{'Token':<{token_width}} {'Lexeme':<{lexeme_width}}")
+        print("-" * (token_width + lexeme_width))
+
+        # Print tokens and lexemes with proper alignment
+        for token in tokens:
+            print(f"{token.type:<{token_width}} {token.lexeme:<{lexeme_width}}")
+
+        print("\n" + "=" * (token_width + lexeme_width) + "\n")  # Separator between test cases
+
 
 if __name__ == "__main__":
     main()
+

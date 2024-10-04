@@ -1,0 +1,2 @@
+while (fahr <= upper)
+    temp = (fahr - 32) * 5 / 9;
