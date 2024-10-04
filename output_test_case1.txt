@@ -1,0 +1,24 @@
+Processing test_case1.txt
+Token           Lexeme              
+-----------------------------------
+KEYWORD         while               
+SEPARATOR       (                   
+IDENTIFIER      fahr                
+OPERATOR        <=                  
+IDENTIFIER      upper               
+SEPARATOR       )                   
+IDENTIFIER      temp                
+OPERATOR        =                   
+SEPARATOR       (                   
+IDENTIFIER      fahr                
+OPERATOR        -                   
+INTEGER         32                  
+SEPARATOR       )                   
+OPERATOR        *                   
+INTEGER         5                   
+OPERATOR        /                   
+INTEGER         9                   
+SEPARATOR       ;                   
+EOF             EOF                 
+
+===================================

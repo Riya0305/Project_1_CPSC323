@@ -7,7 +7,7 @@ class TokenType:
     REAL = "REAL"
     OPERATOR = "OPERATOR"
     SEPARATOR = "SEPARATOR"
-    EOF = "EOF" #stands for end of file, to clearly mark each test case has passed
+    EOF = "EOF"
     UNKNOWN = "UNKNOWN"
 
 class Token:
@@ -114,10 +114,6 @@ class Lexer:
 def main():
     test_files = ["test_case1.txt", "test_case2.txt", "test_case3.txt"]
 
-    # Define column widths for Token and Lexeme
-    token_width = 15
-    lexeme_width = 20
-
     for test_file in test_files:
         with open(test_file, "r") as file:
             source_code = file.read()
@@ -128,18 +124,22 @@ def main():
         # Tokenize the source code
         tokens = lexer.tokenize()
 
-        # Print test case header
-        print(f"\nProcessing {test_file}")
-        print(f"{'Token':<{token_width}} {'Lexeme':<{lexeme_width}}")
-        print("-" * (token_width + lexeme_width))
+        # Define output file name
+        output_file_name = f"output_{test_file}"
+        with open(output_file_name, "w") as output_file:
+            # Write test case header
+            output_file.write(f"Processing {test_file}\n")
+            output_file.write(f"{'Token':<15} {'Lexeme':<20}\n")
+            output_file.write("-" * 35 + "\n")
 
-        # Print tokens and lexemes with proper alignment
-        for token in tokens:
-            print(f"{token.type:<{token_width}} {token.lexeme:<{lexeme_width}}")
+            # Write tokens and lexemes with proper alignment
+            for token in tokens:
+                output_file.write(f"{token.type:<15} {token.lexeme:<20}\n")
 
-        print("\n" + "=" * (token_width + lexeme_width) + "\n")  # Separator between test cases
+            output_file.write("\n" + "=" * 35 + "\n")  # Separator between test cases
+
+    print("Tokenization complete. Check the output files.")
 
 
 if __name__ == "__main__":
     main()
-
