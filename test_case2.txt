@@ -1,7 +1,20 @@
-while (fahr <= upper) {
-    temp = (fahr - 32) * 5 / 9;
-    if (temp > 0)
-        print(temp);
+"""
+[* Test case 2: Factorial calculation using recursion *]
+function factorial (n integer)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
     else
-        print("negative");
+    {
+        return n * factorial(n - 1);
+    }
+    fi
 }
+@
+integer num;
+get (num);
+put (factorial(num));
+@
+"""

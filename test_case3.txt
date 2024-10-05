@@ -1,17 +1,37 @@
-while (fahr <= upper) {
-    temp = (fahr - 32) * 5 / 9;
-    
-    if (temp > 0) {
-        print(temp);
-        for (i = 0; i < 10; i++) {
-            temp = temp - 1;
-            print(temp);
-        }
-    } else {
-        print("negative");
+"""
+[* Test case 3: Basic arithmetic and control flow tests *]
+function arithmetic_operations (a integer, b integer, c real)
+{
+    if (a > b)
+    {
+        return (a + b * c) / 2;
     }
-
-    fahr = fahr + 1;
+    else if (b <= a)
+    {
+        return (b - a) * c;
+    }
+    else
+    {
+        return c;
+    }
+    fi
 }
-
-return;
+@
+integer num1, num2;
+real num3;
+get (num1, num2, num3);
+while (num1 != num2)
+{
+    if (num1 < num2)
+    {
+        num1 = num1 + 1;
+    }
+    else
+    {
+        num2 = num2 + 1;
+    }
+    fi
+}
+put (arithmetic_operations(num1, num2, num3));
+@
+"""

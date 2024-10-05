@@ -1,2 +1,16 @@
-while (fahr <= upper)
-    temp = (fahr - 32) * 5 / 9;
+"""
+[* Test case 1: Conversion function with simple integer math *]
+function simple_convert (fahr integer)
+{
+    return 2 * (fahr - 32) / 9;
+}
+@
+integer low, high;
+get (low, high);
+while (low <= high)
+{
+    put (low);
+    low = low + 1;
+}
+@
+"""
