@@ -1,4 +1,4 @@
-from lexer import Lexer, TokenType  # Assuming lexer.py provides a lexer() function
+from lexer import Lexer  # Import the Lexer class from lexer.py
 
 debug = True  # Switch for enabling/disabling production rule logging
 output_file = "parser_output.txt"  # File to write output
@@ -16,20 +16,17 @@ def log_rule(rule):
 
 class SyntaxAnalyzer:
     def __init__(self, tokens):
-        self.tokens = tokens
+        self.tokens = iter(tokens)  # Make sure tokens are an iterator
         self.current_token = None
         self.next_token()
-        self.line_number = 1  # Track line number for error handling
 
     def next_token(self):
-        """Advance to the next token and update the line number."""
+        """Advance to the next token."""
         self.current_token = next(self.tokens, None)
-        if self.current_token:
-            self.line_number = self.current_token.line  # Assume lexer provides line info
 
     def error(self, message):
         """Handles syntax errors and logs a meaningful error message."""
-        error_message = (f"Syntax Error at line {self.line_number}: {message} "
+        error_message = (f"Syntax Error: {message} "
                          f"(Token: {self.current_token.type}, Lexeme: {self.current_token.lexeme})")
         print(error_message)
         log_to_file(error_message)
@@ -61,6 +58,8 @@ class SyntaxAnalyzer:
     def parse_empty(self):
         log_rule("<Empty> ::= ε")
 
+    # Add similar parsing functions for other grammar rules here
+
 # Clear the output file at the start
 open(output_file, "w").close()
 
@@ -68,10 +67,10 @@ open(output_file, "w").close()
 with open("source_code_input.txt", "r") as file:
     source_code = file.read()
 
-# Tokenize the source code
-lexer = Lexer(source_code)
-tokens = lexer.tokenize()
+# Tokenize the source code using Lexer
+lexer_instance = Lexer(source_code)
+tokens = lexer_instance.tokenize()  # Retrieve tokens using the tokenize() method
 
 # Initialize parser with tokens and parse
-parser = SyntaxAnalyzer(iter(tokens))
+parser = SyntaxAnalyzer(tokens)
 parser.parse_rat24f()

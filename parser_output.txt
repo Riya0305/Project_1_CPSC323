@@ -1,0 +1,4 @@
+<Rat24F> ::= <Opt Function Definitions> @ <Opt Declaration List> <Statement List> @
+<Opt Function Definitions> ::= <Function Definitions> | <Empty>
+<Empty> ::= ε
+Syntax Error: Expected token type @ (Token: KEYWORD, Lexeme: function)
