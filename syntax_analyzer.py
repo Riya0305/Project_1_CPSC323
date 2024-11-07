@@ -1,4 +1,4 @@
-from lexer import lexer  # Assuming lexer.py provides a lexer() function
+from lexer import Lexer, TokenType  # Assuming lexer.py provides a lexer() function
 
 debug = True  # Switch for enabling/disabling production rule logging
 output_file = "parser_output.txt"  # File to write output
@@ -61,10 +61,17 @@ class SyntaxAnalyzer:
     def parse_empty(self):
         log_rule("<Empty> ::= ε")
 
-    # Add similar parsing functions for other grammar rules here
-    # Each should log its production rule and any tokens/lexemes it processes
+# Clear the output file at the start
+open(output_file, "w").close()
 
-# Run the parser
-tokens = lexer("source_code_file")  # Replace with actual source code input
-parser = SyntaxAnalyzer(tokens)
+# Read source code from file
+with open("source_code_input.txt", "r") as file:
+    source_code = file.read()
+
+# Tokenize the source code
+lexer = Lexer(source_code)
+tokens = lexer.tokenize()
+
+# Initialize parser with tokens and parse
+parser = SyntaxAnalyzer(iter(tokens))
 parser.parse_rat24f()
