@@ -102,6 +102,22 @@ class SyntaxAnalyzer:
         while self.current_token and self.current_token.lexeme == ',':
             self.match('SEPARATOR')  # Matches ','
             self.match('IDENTIFIER')
+    
+    def parse_if(self):
+        log_rule("<If> ::= if ( <Condition> ) <Statement> fi | if ( <Condition> ) <Statement> else <Statement> fi")
+        self.match('KEYWORD')  # Matches 'if'
+        self.match('SEPARATOR')  # Matches '('
+        self.parse_condition()  # Parses the condition inside parentheses
+        self.match('SEPARATOR')  # Matches ')'
+        self.parse_statement()  # Parses the statement after the condition
+
+    # Optional 'else' clause
+        if self.current_token and self.current_token.lexeme == 'else':
+            self.match('KEYWORD')  # Matches 'else'
+            self.parse_statement()  # Parses the statement after 'else'
+
+        self.match('KEYWORD')  # Matches 'fi'
+
 
     def parse_opt_declaration_list(self):
         log_rule("<Opt Declaration List> ::= <Declaration List> | <Empty>")
@@ -131,9 +147,14 @@ class SyntaxAnalyzer:
 
     def parse_statement_list(self):
         log_rule("<Statement List> ::= <Statement> | <Statement> <Statement List>")
-        self.parse_statement()
-        while self.current_token and (self.current_token.type in ['IDENTIFIER', 'KEYWORD']):
+        if self.current_token and (self.current_token.type in ['IDENTIFIER', 'KEYWORD']):
             self.parse_statement()
+        # Recur only if there’s a valid next statement
+        if self.current_token and (self.current_token.type in ['IDENTIFIER', 'KEYWORD']):
+            self.parse_statement_list()
+        else:
+            log_rule("ε")  # End recursion if no further statements
+
 
     def parse_statement(self):
         log_rule("<Statement> ::= <Compound> | <Assign> | <If> | <Return> | <Print> | <Scan> | <While>")
