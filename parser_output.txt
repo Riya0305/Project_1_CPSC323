@@ -37,7 +37,6 @@ Token: INTEGER, Lexeme: 5
 <Term Prime> ::= * <Factor> <Term Prime> | / <Factor> <Term Prime> | ε
 <Expression Prime> ::= + <Term> <Expression Prime> | - <Term> <Expression Prime> | ε
 Token: SEPARATOR, Lexeme: ;
-<Statement List> ::= <Statement> | <Statement> <Statement List>
 <Statement> ::= <Compound> | <Assign> | <If> | <Return> | <Print> | <Scan> | <While>
 <Assign> ::= <Identifier> = <Expression> ;
 Token: IDENTIFIER, Lexeme: b
@@ -57,7 +56,6 @@ Token: INTEGER, Lexeme: 10
 <Term Prime> ::= * <Factor> <Term Prime> | / <Factor> <Term Prime> | ε
 <Expression Prime> ::= + <Term> <Expression Prime> | - <Term> <Expression Prime> | ε
 Token: SEPARATOR, Lexeme: ;
-<Statement List> ::= <Statement> | <Statement> <Statement List>
 <Statement> ::= <Compound> | <Assign> | <If> | <Return> | <Print> | <Scan> | <While>
 <If> ::= if ( <Condition> ) <Statement> fi | if ( <Condition> ) <Statement> else <Statement> fi
 Token: KEYWORD, Lexeme: if
