@@ -1,13 +1,6 @@
-function main
-{
-    integer a;
-    integer b;
-    a = 5;
-    b = a + 10;
-    if (a < b) {
-        put(a);
-    } else {
-        put(b);
-    }
+function main() {
+    integer x;
+    x = 10;
+    put(x);
 }
 @

@@ -1,0 +1,12 @@
+<Rat24F> ::= <Opt Function Definitions> @ <Opt Declaration List> <Statement List> @
+<Opt Function Definitions> ::= <Function Definitions> | <Empty>
+<Function Definitions> ::= <Function> | <Function> <Function Definitions>
+<Function> ::= function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
+<Rat24F> ::= <Opt Function Definitions> @ <Opt Declaration List> <Statement List> @
+<Opt Function Definitions> ::= <Function Definitions> | <Empty>
+<Function Definitions> ::= <Function> | <Function> <Function Definitions>
+<Function> ::= function <Identifier> ( <Opt Parameter List> ) <Opt Declaration List> <Body>
+<Opt Parameter List> ::= <Parameter List> | <Empty>
+<Empty> ::= ε
+Syntax Error: Expected token type SEPARATOR (Token: KEYWORD, Lexeme: integer)
+<Rat24F> ::= <Opt Function Definitions> @ <Opt Declaration List> <Statement List> @

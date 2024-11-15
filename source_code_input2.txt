@@ -1,0 +1,11 @@
+function main() {
+    integer a, b;
+    a = 5;
+    b = a + 10;
+    if (a < b) {
+        put(a);
+    } else {
+        put(b);
+    }
+}
+@

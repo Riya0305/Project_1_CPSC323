@@ -1,0 +1,48 @@
+
+Processing file: source_code_input2.txt
+Token: KEYWORD Lexeme: function
+Token: IDENTIFIER Lexeme: main
+Token: SEPARATOR Lexeme: (
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: {
+Token: KEYWORD Lexeme: integer
+Token: IDENTIFIER Lexeme: a
+Token: MISMATCH Lexeme: ,
+Token: IDENTIFIER Lexeme: b
+Token: SEPARATOR Lexeme: ;
+Token: IDENTIFIER Lexeme: a
+Token: OPERATOR Lexeme: =
+Token: NUMBER Lexeme: 5
+Token: SEPARATOR Lexeme: ;
+Token: IDENTIFIER Lexeme: b
+Token: OPERATOR Lexeme: =
+Token: IDENTIFIER Lexeme: a
+Token: OPERATOR Lexeme: +
+Token: NUMBER Lexeme: 10
+Token: SEPARATOR Lexeme: ;
+Token: KEYWORD Lexeme: if
+Token: SEPARATOR Lexeme: (
+Token: IDENTIFIER Lexeme: a
+Token: OPERATOR Lexeme: <
+Token: IDENTIFIER Lexeme: b
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: {
+Token: KEYWORD Lexeme: put
+Token: SEPARATOR Lexeme: (
+Token: IDENTIFIER Lexeme: a
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: ;
+Token: SEPARATOR Lexeme: }
+Token: KEYWORD Lexeme: else
+Token: SEPARATOR Lexeme: {
+Token: KEYWORD Lexeme: put
+Token: SEPARATOR Lexeme: (
+Token: IDENTIFIER Lexeme: b
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: ;
+Token: SEPARATOR Lexeme: }
+Token: SEPARATOR Lexeme: }
+Token: MISMATCH Lexeme: @
+<Function Declaration> -> function <Identifier> ( <Parameters> ) <Body>
+<Identifier> -> main
+<Body> -> { <Statements> }

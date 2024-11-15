@@ -1,0 +1,16 @@
+function process(integer x) {
+    integer i;
+    integer sum;
+    sum = 0;
+    i = 0;
+    while (i < x) {
+        sum = sum + i;
+        i = i + 1;
+    }
+    if (sum > 20) {
+        put("Large sum");
+    } else {
+        put("Small sum");
+    }
+}
+@

@@ -1,0 +1,77 @@
+
+Processing file: source_code_input3.txt
+Token: KEYWORD Lexeme: function
+Token: IDENTIFIER Lexeme: process
+Token: SEPARATOR Lexeme: (
+Token: KEYWORD Lexeme: integer
+Token: IDENTIFIER Lexeme: x
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: {
+Token: KEYWORD Lexeme: integer
+Token: IDENTIFIER Lexeme: i
+Token: SEPARATOR Lexeme: ;
+Token: KEYWORD Lexeme: integer
+Token: IDENTIFIER Lexeme: sum
+Token: SEPARATOR Lexeme: ;
+Token: IDENTIFIER Lexeme: sum
+Token: OPERATOR Lexeme: =
+Token: NUMBER Lexeme: 0
+Token: SEPARATOR Lexeme: ;
+Token: IDENTIFIER Lexeme: i
+Token: OPERATOR Lexeme: =
+Token: NUMBER Lexeme: 0
+Token: SEPARATOR Lexeme: ;
+Token: KEYWORD Lexeme: while
+Token: SEPARATOR Lexeme: (
+Token: IDENTIFIER Lexeme: i
+Token: OPERATOR Lexeme: <
+Token: IDENTIFIER Lexeme: x
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: {
+Token: IDENTIFIER Lexeme: sum
+Token: OPERATOR Lexeme: =
+Token: IDENTIFIER Lexeme: sum
+Token: OPERATOR Lexeme: +
+Token: IDENTIFIER Lexeme: i
+Token: SEPARATOR Lexeme: ;
+Token: IDENTIFIER Lexeme: i
+Token: OPERATOR Lexeme: =
+Token: IDENTIFIER Lexeme: i
+Token: OPERATOR Lexeme: +
+Token: NUMBER Lexeme: 1
+Token: SEPARATOR Lexeme: ;
+Token: SEPARATOR Lexeme: }
+Token: KEYWORD Lexeme: if
+Token: SEPARATOR Lexeme: (
+Token: IDENTIFIER Lexeme: sum
+Token: OPERATOR Lexeme: >
+Token: NUMBER Lexeme: 20
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: {
+Token: KEYWORD Lexeme: put
+Token: SEPARATOR Lexeme: (
+Token: MISMATCH Lexeme: "
+Token: IDENTIFIER Lexeme: Large
+Token: IDENTIFIER Lexeme: sum
+Token: MISMATCH Lexeme: "
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: ;
+Token: SEPARATOR Lexeme: }
+Token: KEYWORD Lexeme: else
+Token: SEPARATOR Lexeme: {
+Token: KEYWORD Lexeme: put
+Token: SEPARATOR Lexeme: (
+Token: MISMATCH Lexeme: "
+Token: IDENTIFIER Lexeme: Small
+Token: IDENTIFIER Lexeme: sum
+Token: MISMATCH Lexeme: "
+Token: SEPARATOR Lexeme: )
+Token: SEPARATOR Lexeme: ;
+Token: SEPARATOR Lexeme: }
+Token: SEPARATOR Lexeme: }
+Token: MISMATCH Lexeme: @
+<Function Declaration> -> function <Identifier> ( <Parameters> ) <Body>
+<Identifier> -> process
+Parameter: integer
+<Identifier> -> x
+<Body> -> { <Statements> }
