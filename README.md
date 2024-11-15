@@ -1,4 +1,4 @@
-# Project_1_CPSC323
+# Project_1_CPSC323 and Project_2_CPSC323
 
 # Names: 
 - Riya Jain
