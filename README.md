@@ -1,9 +1,9 @@
 # Project_1_CPSC323 and Project_2_CPSC323
 
 # Names: 
-- Riya Jain
-- Jim Alvarez
-- Johnathan Fagoaga
+- Riya Jain - riyajain@csu.fullerton.edu
+- Jim Alvarez - jimalvarez566@csu.fullerton.edu
+- Johnathan Fagoaga - foggy1365@csu.fullerton.edu
 
 # Run the code:
 * Enter "python3 syntax_analyzer.py
